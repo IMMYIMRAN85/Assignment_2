@@ -17,7 +17,7 @@ def main():
     guess = get_int("Your guess: ")
 
     if guess == secret:
-        print("🎉 Correct!")
+        print(" Correct!")
     else:
         print(f" Nope, it was {secret}")
 
