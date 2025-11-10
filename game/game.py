@@ -1,25 +1,21 @@
-﻿
-# overwrite with the tiny improved version (still only on this branch)
+﻿import random
 
-import random
-
-def get_int(prompt):
-    """Keep asking until user enters a valid number."""
-    while True:
-        user_input = input(prompt).strip()
-        if user_input.isdigit():
-            return int(user_input)
-        print(" Invalid input. Please enter a whole number 1–10.")
+def play_once():
+    secret = random.randint(1, 10)
+    guess = int(input("Guess a number 1-10: "))
+    if guess == secret:
+        print("Correct!")
+    else:
+        print(f"Nope, it was {secret}")
 
 def main():
-    print("=== Guess 1-10 ===")
-    secret = random.randint(1, 10)
-    guess = get_int("Your guess: ")
-
-    if guess == secret:
-        print(" Correct!")
-    else:
-        print(f" Nope, it was {secret}")
+    print("=== Guess 1–10 (Replay Enabled) ===")
+    while True:
+        play_once()
+        again = input("Play again? (y/n): ").strip().lower()
+        if again != "y":
+            print("Thanks for playing!")
+            break
 
 if __name__ == "__main__":
     main()
